@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日常查询・对照阅读 – leyu 信息索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f7e8d7 0%, #f5d9c0 40%, #ebd1b5 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.2rem;
+      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: #3e3024;
+    }
+
+    .magazine-card {
+      max-width: 880px;
+      width: 100%;
+      background: rgba(255, 251, 245, 0.92);
+      backdrop-filter: blur(3px);
+      border-radius: 40px 12px 40px 12px;
+      padding: 2.8rem 2.8rem 2.2rem;
+      box-shadow: 0 20px 40px -12px rgba(110, 70, 40, 0.25),
+                  0 8px 16px -6px rgba(60, 40, 20, 0.1);
+      transition: box-shadow 0.2s ease;
+    }
+
+    @media (max-width: 640px) {
+      .magazine-card {
+        padding: 2rem 1.5rem 1.6rem;
+        border-radius: 28px 8px 28px 8px;
+      }
+    }
+
+    /* 首页横幅 / 刊头 */
+    .hero-banner {
+      margin-bottom: 2.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px dashed #d8bfa8;
+    }
+
+    .hero-banner h1 {
+      font-size: 2.6rem;
+      font-weight: 350;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      color: #4b3623;
+    }
+
+    .hero-banner h1 span {
+      font-weight: 620;
+      background: linear-gradient(90deg, #a06b46, #7f5539);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      padding-right: 0.1rem;
+    }
+
+    .hero-sub {
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      color: #7b5d44;
+      letter-spacing: 0.3px;
+      border-left: 3px solid #c9aa8a;
+      padding-left: 1rem;
+    }
+
+    /* 背景说明——小引 */
+    .context-note {
+      background: #f4ede5;
+      padding: 1.4rem 1.8rem;
+      border-radius: 60px 8px 60px 8px;
+      margin: 1.2rem 0 2rem 0;
+      font-size: 1rem;
+      color: #4a392b;
+      box-shadow: inset 0 1px 4px rgba(160, 120, 80, 0.08);
+      line-height: 1.65;
+    }
+
+    .context-note i {
+      font-style: italic;
+      color: #7a5b3f;
+    }
+
+    /* 三段自然介绍 (杂志体) */
+    .article-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin: 1.6rem 0 2rem;
+    }
+
+    .passage {
+      background: #fffffc;
+      padding: 1.4rem 1.6rem;
+      border-radius: 24px 6px 24px 6px;
+      box-shadow: 0 2px 8px rgba(140, 100, 70, 0.06);
+      transition: background 0.15s;
+    }
+
+    .passage h2 {
+      font-size: 1.35rem;
+      font-weight: 520;
+      margin-bottom: 0.55rem;
+      color: #5c3f2b;
+      letter-spacing: 0.3px;
+      border-left: 5px solid #cbab8e;
+      padding-left: 0.9rem;
+    }
+
+    .passage p {
+      margin-bottom: 0.6rem;
+    }
+
+    .passage p:last-child {
+      margin-bottom: 0;
+    }
+
+    .inline-link {
+      color: #8a623f;
+      background: #f6ede4;
+      padding: 0.08rem 0.4rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .inline-link:hover {
+      background: #ddcbbc;
+      color: #4d3421;
+      border-bottom: 1px solid #a9815e;
+    }
+
+    /* 特点与场景融合（第四段补充形式） */
+    .extra-note {
+      background: #f8f1e9;
+      padding: 1.2rem 1.6rem;
+      border-radius: 12px 40px 12px 40px;
+      margin-top: 0.4rem;
+      border: 1px solid #e3d3c2;
+    }
+
+    .extra-note p {
+      font-size: 0.96rem;
+      color: #4c3b2d;
+    }
+
+    .extra-note strong {
+      color: #6f4f33;
+    }
+
+    /* FAQ 摘要 / 小提示 */
+    .faq-mini {
+      background: #efe5d9;
+      padding: 1.6rem 1.8rem;
+      border-radius: 20px 20px 40px 8px;
+      margin: 1.6rem 0 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.8rem;
+    }
+
+    .faq-item {
+      flex: 1 1 180px;
+    }
+
+    .faq-item .q {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #4e3927;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-item .a {
+      font-size: 0.88rem;
+      color: #5d4736;
+    }
+
+    /* 页尾访问提示 */
+    .footer-visit {
+      border-top: 1px solid #dccfc2;
+      padding-top: 1.6rem;
+      margin-top: 0.8rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #5a4535;
+    }
+
+    .footer-visit .suggest {
+      background: #e7d9cb;
+      display: inline-block;
+      padding: 0.35rem 1.8rem;
+      border-radius: 40px;
+      letter-spacing: 0.4px;
+      line-height: 1.7;
+    }
+
+    .suggest a {
+      color: #593f2b;
+      text-decoration: none;
+      font-weight: 500;
+      background: #fcf6ef;
+      padding: 0.15rem 0.7rem;
+      border-radius: 30px;
+      transition: background 0.15s, box-shadow 0.15s;
+      border: 1px solid #dac4b0;
+      display: inline-block;
+      margin: 0 0.15rem;
+    }
+
+    .suggest a:hover {
+      background: #dac2ab;
+      box-shadow: 0 1px 6px rgba(120, 80, 40, 0.12);
+    }
+
+    .footer-visit .meta {
+      margin-top: 0.9rem;
+      font-size: 0.8rem;
+      color: #8b7664;
+      letter-spacing: 0.2px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dccfc2;
+      margin: 1.2rem 0 0.6rem;
+    }
+
+    /* 响应式小修 */
+    @media (max-width: 480px) {
+      .hero-banner h1 {
+        font-size: 2rem;
+      }
+      .passage h2 {
+        font-size: 1.2rem;
+      }
+      .context-note {
+        padding: 1.2rem;
+      }
+      .faq-mini {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="magazine-card">
+
+  <!-- 首页横幅 -->
+  <div class="hero-banner">
+    <h1>日常查询·对照·延伸<span>｜leyu</span></h1>
+    <div class="hero-sub">杂志专题 · 信息索引 · 轻阅读</div>
+  </div>
+
+  <!-- 背景说明 -->
+  <div class="context-note">
+    <i>“查询不只是找答案，也是一种翻阅与对照。”</i> 在信息过载的日常里，我们常常需要一个安静的起点：从一条线索出发，再顺着标记延伸下去。这个页面围绕关键词 <strong>leyu</strong> 整理了几段笔记式的段落，既不夸大也不煽动，只是呈现一种可阅读、可对照的叙述。
+  </div>
+
+  <!-- 三段自然介绍 (从日常查询、对照、延伸阅读角度) -->
+  <div class="article-body">
+
+    <div class="passage">
+      <h2>一、搜索与日常索引</h2>
+      <p>每天我们打开浏览器，输入几个字符，然后开始浏览。有时候是查一个名字、一个代号，有时候只是想了解某条线索背后还有什么内容。<a href="https://encrypt-leyu.com.cn" class="inline-link">leyu</a> 这个词在中文互联网语境中并不冷僻，它出现在许多信息片段里，但很少有人把它当作一个“索引起点”去展开。其实只要稍加对照，就能发现围绕它形成的资料层比想象中更多。</p>
+      <p>与其说这是某个特定入口，不如说它是一个可被反复调用的标记。你可以在不同场景下回到这里，重新梳理手边的信息。</p>
+    </div>
+
+    <div class="passage">
+      <h2>二、对照：不同文本中的位置</h2>
+      <p>我习惯把那些反复出现的词记录下来，然后试着平行比较它们出现的页面、语境和时间。用 <a href="https://encrypt-leyu.com.cn" class="inline-link">leyu</a> 做了一次小范围对照后，发现它在几种不同类型的说明中都承担着“标识性”角色——既不像专用术语那么封闭，也不像普通词汇那样被稀释。它更像一个可以停靠的坐标。</p>
+      <p>如果你也喜欢做这种安静的对照阅读，把这个词当作一个锚点或许会带来一些新的观察角度。</p>
+    </div>
+
+    <div class="passage">
+      <h2>三、延伸阅读的触角</h2>
+      <p>很多时候我们读完一段内容，会下意识地想：“还有没有类似的材料？” 延伸阅读不一定是打开更多标签页，也可以是对同一个词背后结构的重新打量。比如 <a href="https://encrypt-leyu.com.cn" class="inline-link">leyu</a> 这个字符串，在技术语境和日常语境里分别有怎样的侧重？它是否和某些固定搭配同时出现？这些都是可以慢慢展开的小课题。</p>
+      <p>这个页面本身不是终点，而是一张便签——提醒你在下一次查询时，试着多做一次对照。</p>
+    </div>
+
+  </div>
+
+  <!-- 特点 + 场景 (第四段补充) -->
+  <div class="extra-note">
+    <p><strong>一些适用场景：</strong> 笔记整理时用作标签 / 轻量信息对照 / 在浏览器书签里当作一个索引夹。整个页面没有复杂的技术门槛，也不收集任何数据，只提供一种可反复回来查阅的叙述感。</p>
+  </div>
+
+  <!-- FAQ 摘要 (简短的问答风格) -->
+  <div class="faq-mini">
+    <div class="faq-item">
+      <span class="q">▸ 这个页面会频繁更新吗？</span>
+      <span class="a">不保证固定周期，但内容会随方向调整。</span>
+    </div>
+    <div class="faq-item">
+      <span class="q">▸ 可以直接引用这里的叙述吗？</span>
+      <span class="a">可以，但建议注明出处或上下文。</span>
+    </div>
+    <div class="faq-item">
+      <span class="q">▸ 关键词 leyu 是固定的吗？</span>
+      <span class="a">它是当前索引的核心词，不排斥其他关联词。</span>
+    </div>
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <div class="footer-visit">
+    <div class="suggest">
+      若需要回到这个索引起点，随时使用
+      <a href="https://encrypt-leyu.com.cn">leyu</a>
+      作为对照标记。
+    </div>
+    <div class="meta">
+      杂志式信息页 · 日常查询与延伸
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
