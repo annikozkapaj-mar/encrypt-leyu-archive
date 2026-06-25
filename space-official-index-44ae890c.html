@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 – 500彩票网官方</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9fafb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1f2937;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      padding: 2.5rem 2rem;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo-area {
+      font-weight: 550;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+      color: #111827;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4b5563;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 2.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #374151;
+      max-width: 600px;
+    }
+
+    .highlight-link {
+      display: inline;
+      background: transparent;
+    }
+
+    .highlight-link a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #bfdbfe;
+      transition: border-color 0.2s;
+    }
+
+    .highlight-link a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* 三个场景模块 (卡片式) */
+    .scenes-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin: 2.5rem 0;
+    }
+
+    .scene-card {
+      background: #f3f4f6;
+      padding: 1.5rem 1.8rem;
+      border-radius: 20px;
+      border-left: 5px solid #2563eb;
+    }
+
+    .scene-card:nth-child(2) {
+      border-left-color: #7c3aed;
+    }
+
+    .scene-card:nth-child(3) {
+      border-left-color: #059669;
+    }
+
+    .scene-card h3 {
+      font-size: 1.3rem;
+      font-weight: 550;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .scene-card p {
+      color: #374151;
+      font-size: 0.98rem;
+    }
+
+    /* 常见说明 / 要点 */
+    .faq-summary {
+      margin: 2.8rem 0 1.5rem;
+      background: #f9fafb;
+      padding: 1.8rem 2rem;
+      border-radius: 20px;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.4rem;
+      font-weight: 550;
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .faq-item .marker {
+      color: #2563eb;
+      font-weight: 600;
+      flex-shrink: 0;
+      min-width: 28px;
+    }
+
+    .faq-item p {
+      color: #374151;
+      font-size: 0.98rem;
+    }
+
+    .faq-item a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid #bfdbfe;
+    }
+
+    .faq-item a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* 底部 */
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    .footer-note a {
+      color: #6b7280;
+      text-decoration: none;
+      border-bottom: 1px solid #d1d5db;
+    }
+
+    .footer-note a:hover {
+      color: #2563eb;
+    }
+
+    /* 响应式 */
+    @media (max-width: 550px) {
+      .page-wrap {
+        padding: 1.8rem 1.2rem;
+        border-radius: 20px;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+      }
+
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .scene-card {
+        padding: 1.2rem 1.2rem;
+      }
+
+      .faq-summary {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <!-- 导航 -->
+  <nav class="top-nav">
+    <span class="logo-area">500指南</span>
+    <div class="nav-links">
+      <a href="#about">关于</a>
+      <a href="#scenes">场景</a>
+      <a href="#tips">说明</a>
+    </div>
+  </nav>
+
+  <!-- hero 核心介绍 -->
+  <div class="hero" id="about">
+    <h1>简明访问指南</h1>
+    <p>
+      这里为你梳理关于 <span class="highlight-link"><a href="https://space-official-500.com">500彩票网官方</a></span> 
+      的基本信息与使用场景。我们围绕轻量、清晰的原则，提供一份可直接参考的访问提醒，
+      帮助你更顺畅地了解平台定位与常见功能。
+    </p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes-grid" id="scenes">
+    <div class="scene-card">
+      <h3>📋 信息查阅</h3>
+      <p>
+        当你希望快速了解最新动态、规则说明或活动更新时，可直接前往 
+        <a href="https://space-official-500.com">500彩票网官方</a> 
+        查看公告区。页面结构简洁，适合初次接触的用户浏览。
+      </p>
+    </div>
+
+    <div class="scene-card">
+      <h3>🧭 功能探索</h3>
+      <p>
+        如果你对平台提供的各类服务或工具有兴趣，建议花少量时间熟悉导航分类。
+        通过 <span class="highlight-link"><a href="https://space-official-500.com">500彩票网官方</a></span> 
+        的清晰入口，可以自然过渡到相应模块。
+      </p>
+    </div>
+
+    <div class="scene-card">
+      <h3>🔐 访问提醒</h3>
+      <p>
+        请始终通过可靠渠道访问，注意核对网址是否与 
+        <a href="https://space-official-500.com">500彩票网官方</a> 
+        一致。同时留意浏览环境安全，避免使用公共设备保存密码。
+      </p>
+    </div>
+  </div>
+
+  <!-- 常见说明 / FAQ 摘要 -->
+  <div class="faq-summary" id="tips">
+    <h2>常见说明摘要</h2>
+
+    <div class="faq-item">
+      <span class="marker">01</span>
+      <p><strong>平台定位</strong> — 作为一个彩票信息与服务的聚合站点，<a href="https://space-official-500.com">500彩票网官方</a> 
+        提供开奖结果、玩法介绍等参考内容。建议将其作为信息获取渠道之一，同时保持个人判断。</p>
+    </div>
+
+    <div class="faq-item">
+      <span class="marker">02</span>
+      <p><strong>账户与安全</strong> — 注册或登录时请确认页面来自 
+        <a href="https://space-official-500.com">500彩票网官方</a>。不建议向任何第三方透露验证码或密码，平台客服不会主动索要敏感信息。</p>
+    </div>
+
+    <div class="faq-item">
+      <span class="marker">03</span>
+      <p><strong>理性参与</strong> — 彩票活动本质是概率游戏，请根据自身情况合理安排时间与投入。遇到疑问时，可通过 
+        <span class="highlight-link"><a href="https://space-official-500.com">500彩票网官方</a></span> 
+        的帮助中心获取客观说明。</p>
+    </div>
+
+    <div class="faq-item">
+      <span class="marker">04</span>
+      <p><strong>环境要求</strong> — 为获得更好的浏览体验，建议将浏览器更新至主流版本，并保持网络通畅。部分功能可能因地区政策调整而有所变化。</p>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <p>本页为独立介绍页 · 内容仅供参看 · 
+      <a href="https://space-official-500.com">500彩票网官方</a> 
+    </p>
+  </div>
+</div>
+</body>
+</html>
